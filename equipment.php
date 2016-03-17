@@ -30,12 +30,12 @@ class equipment extends adb{
 		return $this->query($strQuery);				
 	}
 	/**
-	*gets user records based on the filter
+	*gets equipment records based on the filter
 	*@param string mixed condition to filter. If  false, then filter will not be applied
 	*@return boolean true if successful, else false
 	*/
 	function getUsers($filter=false){
-		$strQuery="select USERCODE,USERNAME,FIRSTNAME,LASTNAME,PERMISSION,users.USERGROUP,STATUS,PERMISSION+0 as NPERMISSION,STATUS+0 as NSTATUS from users left join usergroups on users.USERGROUP=usergroups.GROUP_ID";
+		$strQuery="select NAME,BARCODE,DESCRIPTION,DATE,LABNAME,LABLOCATION";
 		if($filter!=false){
 			$strQuery=$strQuery . " where $filter";
 		}
