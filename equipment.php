@@ -17,7 +17,7 @@ class equipment extends adb{
 	*@param int dateAdded date equipment was added
 	*@return boolean returns true if successful or false 
 	*/
-	function addUser($username,$firstname='none',$lastname='none',$password='none',$usergroup=0,$permission=1){
+	function addEquipment($username,$firstname='none',$lastname='none',$password='none',$usergroup=0,$permission=1){
 		
 		if($status=1){
 			$status = "ENABLED";

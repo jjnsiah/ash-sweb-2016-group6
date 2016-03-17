@@ -32,11 +32,7 @@
 	include_once("equipment.php");
 
 	
-	$db=new mysqli("localhost","root","","ashlabs");
-	if($db->connect_errno){
-		//no connection, exit
-		exit();
-	}
+	
 	$strQuery="insert into equipments set NAME='$name', BARCODE='$barcode',
 				DESCRIPTION='$desc',
 				DATE='$dateAdded',
