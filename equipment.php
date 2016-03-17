@@ -9,13 +9,12 @@ class equipment extends adb{
 	}
 	/**
 	*Adds a new equipment
-	*@param string username login name
-	*@param string firstname first name
-	*@param string lastname last name
-	*@param string password login password
-	*@param string usergroup group id
-	*@param int permission permission as an int
-	*@param int status status of the user account
+	*@param string name equipment name
+	*@param string barcode equipment barcode
+	*@param string desc equipment description
+	*@param string labName name of lab
+	*@param string labLocation location of lab
+	*@param int dateAdded date equipment was added
 	*@return boolean returns true if successful or false 
 	*/
 	function addUser($username,$firstname='none',$lastname='none',$password='none',$usergroup=0,$permission=1){
