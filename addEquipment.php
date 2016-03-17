@@ -21,6 +21,7 @@
 	if(!isset($_REQUEST['name'])){
 		exit();		
 		//if no data, exit
+	}
 	
 	//print_r($_REQUEST);
 	$name=$_REQUEST['name'];
@@ -34,8 +35,10 @@
 	$r=$obj->addEquipment($name,$barcode,$desc,$dateAdded,$labName,$labLocation);
 	if($r==false){
 		$strStatusMessage="error while adding Equipment";
+		
 		}else{
-					$strStatusMessage="$name added";
+		$strStatusMessage="$name added";
 		}
-	}
+		echo $strStatusMessage
+	
 ?>

@@ -41,4 +41,5 @@ class equipment extends adb{
 		}
 		return $this->query($strQuery);
 	}
+}
 ?>
