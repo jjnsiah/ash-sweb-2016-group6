@@ -17,22 +17,16 @@ class equipment extends adb{
 	*@param int dateAdded date equipment was added
 	*@return boolean returns true if successful or false 
 	*/
-	function addEquipment($username,$firstname='none',$lastname='none',$password='none',$usergroup=0,$permission=1){
+	function addEquipment($name,$barcode,$desc,$dateAdded,$labName,$labLocation){
 		
-		if($status=1){
-			$status = "ENABLED";
-		}
-		else {
-			$status = "DISABLED";
-		}
-		$strQuery="insert into users set
-						USERNAME='$username',
-						FIRSTNAME='$firstname',
-						LASTNAME='$lastname',
-						PWORD=MD5('$password'),
-						PERMISSION=$permission,
-						USERGROUP=$usergroup,
-						STATUS=$status";
+		
+		$strQuery="insert into equipments set 
+				NAME='$name', 
+				BARCODE='$barcode',
+				DESCRIPTION='$desc',
+				DATE='$dateAdded',
+				LABNAME='$labName',
+				LABLOCATION='$labLocation'";
 		return $this->query($strQuery);				
 	}
 	/**
