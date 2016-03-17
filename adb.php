@@ -1,7 +1,4 @@
 <?php
-/**
-*Database connection helper
-*/
 
 /**
 * Database connection helper class
