@@ -20,6 +20,9 @@ class testAdb extends PHPUnit_Framework_TestCase
 			"Around amphitheatre",	//lab location
 			));
 			
+		$this->assertEquals(true,$obj->query("select * from equipment where name='$strTestUsername'"));
+		//count the number of fields
+		$this->assertCount(6,$obj->fetch());	
 		
     }
 	

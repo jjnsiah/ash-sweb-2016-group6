@@ -15,7 +15,7 @@ class adb{
 	function connect(){
 		
 		//connect
-		$this->db=new mysqli('localhost','root','','ashlabs');
+		$this->db=new mysqli('localhost','ashesics_oos8746','8sk7qfps9xwv','ashesics_onyinye_oguego');
 		if($this->db->connect_errno){
 			//no connection, exit
 			return false;
