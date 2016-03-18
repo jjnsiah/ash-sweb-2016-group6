@@ -37,16 +37,25 @@ $obj->transactionQuery();
 	<td><b>DATE / TIME</b></td>
 	<td><b>ACTIVITY</b></td>
 	</tr>";
-	//$x=1;
+	$x=1;
 	while ($results= $obj->fetch())
 	{
-		//if ($x%2==0){
+		if ($x%2==0){
+		echo "<tr>
+		<td bgcolor= #e57373 >{$results['Activity No.']}</td>
+		<td bgcolor=#e57373 >{$results['Date/Time']}</td>
+	  <td bgcolor=#e57373 >{$results['Activity']}</td>
+		</tr>";
+	}
+	else{
 		echo "<tr>
 		<td>{$results['Activity No.']}</td>
 		<td>{$results['Date/Time']}</td>
-	  <td>{$results['Activity']}</td>
+		<td>{$results['Activity']}</td>
 		</tr>";
-	//}
+	}
+	$x++;
+
 }
 
 
