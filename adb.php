@@ -6,17 +6,22 @@
 class adb{
 	var $db=null;
 	var $result=null;
+	
+	var $conn=null;
+	var $data=null;
 	function adb(){
 	}
 	/**
 	*Connect to database 
 	*@return boolean ture if connected else false
 	*/
-	function connect(){
+	public function connect(){
 		
 		//connect
-		$this->db=new mysqli('localhost','ashesics_oos8746','8sk7qfps9xwv','ashesics_onyinye_oguego');
-		if($this->db->connect_errno){
+		//$this->db=new mysqli('localhost','ashesics_oos8746','8sk7qfps9xwv','ashesics_onyinye_oguego');
+			$this->conn=new mysqli('localhost','root','','ashlabs');
+
+		if($this->conn->connect_errno){
 			//no connection, exit
 			return false;
 		}
@@ -28,17 +33,17 @@ class adb{
 	*@param string $strQuery sql string to execute
 	*/
 	function query($strQuery){
-		if(!$this->connect()){
-			return false;
+		if($this->conn==null){
+			$this->connect();
+			
 		}
-		if($this->db==null){
-			return false;
+		
+		$this->data=$this->conn->query($strQuery);
+		if($this->data!=null){
+			return true;
+		} else{
+		return false;
 		}
-		$this->result=$this->db->query($strQuery);
-		if($this->result==false){
-			return false;
-		}
-		return true;
 	}
 	/*
 	* Fetch from the current data set and return
@@ -46,15 +51,12 @@ class adb{
 	*/
 	function fetch(){
 		//Complete this funtion to fetch from the $this->result
-		if($this->result==null){
+		if($this->data!=null){
+			return $this->data->fetch_assoc();
+		}else{
 			return false;
 		}
 		
-		if($this->result==false){
-			return false;
-		}
-		
-		return $this->result->fetch_assoc();
 	}
 }
 /*
