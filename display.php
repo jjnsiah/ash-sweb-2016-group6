@@ -42,9 +42,9 @@ $obj->transactionQuery();
 	{
 		if ($x%2==0){
 		echo "<tr>
-		<td bgcolor= #e57373 >{$results['Activity No.']}</td>
-		<td bgcolor=#e57373 >{$results['Date/Time']}</td>
-	  <td bgcolor=#e57373 >{$results['Activity']}</td>
+		<td bgcolor= #ffcdd2 >{$results['Activity No.']}</td>
+		<td bgcolor=#ffcdd2 >{$results['Date/Time']}</td>
+	  <td bgcolor=#ffcdd2 >{$results['Activity']}</td>
 		</tr>";
 	}
 	else{
