@@ -30,9 +30,12 @@
 	$labName=$_REQUEST['labName'];
 	$labLocation=$_REQUEST['labLocation'];
 	$dateAdded=$_REQUEST['dateAdded'];
+	
 	include_once("equipment.php");
 	$obj=new equipment();
 	$r=$obj->addEquipment($name,$barcode,$desc,$dateAdded,$labName,$labLocation);
+	
+	//Print message
 	if($r==false){
 		$strStatusMessage="error while adding Equipment";
 		
