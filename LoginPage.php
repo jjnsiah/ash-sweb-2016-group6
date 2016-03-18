@@ -1,4 +1,5 @@
-<html>
+class loginPage {
+	<html>
 	<head>
 	</head>
 	<body>
@@ -18,29 +19,26 @@
 	$db = new mysqli ("127.0.0.1", "root", "mawuli.adjei", "ashlabs");
 	if(isset($_REQUEST["Username"]) && isset($_REQUEST["Password"]) && isset($_REQUEST["UserType"])){
 		$username = $_GET["Username"];
+		echo $username;
 		$password = $_GET["Password"];
+		echo $password;
 		$userType = $_GET["UserType"];
-	}
-	else {
-		echo "Please enter both your username and password, and specify your UserType";
-	}
-	
+		echo $userType;
 
-	/*echo $username;
-	echo $password;
-	echo $userType;*/
-	if ($db -> connect_errno){
+			if ($db -> connect_errno){
 		echo "error";
 		exit();
 	}
 
 	else {
 		if ($userType == "Student"){
-			$pQuery = ("SELECT password FROM students WHERE student.username = 'Username'");
-			$uQuery = ("SELECT username FFOM students WHERE student.password = 'Password'");
+			$pQuery = ("SELECT password FROM students WHERE username = '$username'");
+			$uQuery = ("SELECT username FFOM students WHERE password = '$password'");
 
 			$uResult = $db->query($uQuery);
+			echo $uResult;
 			$pResult = $db->query($pQuery);
+			//print_r($pResult);
 
 			if($uResult = false || $pResult = false){
 				echo "username or password does not exist";
@@ -78,4 +76,15 @@
 		}
 
 	}
+	}
+	else {
+		echo "Please enter both your username and password, and specify your UserType";
+	}
+	
+
+	/*echo $username;
+	echo $password;
+	echo $userType;*/
+
 ?>
+}
