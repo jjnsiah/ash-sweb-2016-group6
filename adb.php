@@ -4,8 +4,6 @@
 * Database connection helper class
 */
 class adb{
-	var $db=null;
-	var $result=null;
 	
 	var $conn=null;
 	var $data=null;
