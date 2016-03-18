@@ -8,7 +8,7 @@
 			<div>Description: <textarea name="desc" cols="width" rows="height" wrap="type"></textarea></div><br>
 			<div>Lab Name: <input type="text" name="labName"/></div><br>
 			<div>Lab Location: <input type="text" name="labLocation"/></div><br>
-			<div>Date Added: <input type="text" name="dateAdded" value="dd/mm/yyyy"/></div><br>
+			<div>Date Added: <input type="text" name="dateAdded" value="yyyy/mm/dd"/></div><br>
 			<div>
 				
 				</select>
