@@ -1,5 +1,3 @@
-
-
 <script language="JavaScript">
 <!--
 function clock(){
@@ -103,9 +101,9 @@ $(document).ready(function(){
 Borrow Equipment</td>
     
   </tr>
-<tr  style="font-size:12px; text-decoration:none; font-family:Verdana, Geneva, sans-serif;">
-<td><a class='s' href="?accNo=<?php echo $_GET['accNo']; ?>&create&borrow&mybooks">My Equipment</td>
-<td><a class='s' href="?accNo=<?php echo $_GET['accNo']; ?>&create&borrow&myinfo">Info</a></td>
+echo "<tr  style="font-size:12px; text-decoration:none; font-family:Verdana, Geneva, sans-serif;>
+ <td bgcolor=white><a href='myinfo.php?uid=".$row['id']."'>MyInfo</a></td>";
+Info</a></td>
 <td>Logout</td>
 </tr>
 
@@ -132,7 +130,8 @@ if (isset ($_REQUEST['stid']))
 	 
 	$set=new settings();
 	
-	$check=$set->query("select * from tblborrower where studentid='$studentid'");
+	$check=$set->query("select * from tblborrower where studentid=$studentid");
+	echo $check;
 	
 if ($check==false) {
 	echo "false";
