@@ -25,9 +25,9 @@
 	include_once("functions.php");
 	$new= new functions();
 	
-	if(isset($_REQUEST['code'])){
+	if(isset($_REQUEST['id'])){
 	
-	$id=$_REQUEST['code'];
+	$id=$_REQUEST['id'];
 	$check=$new->getOldEquipment($id);
 	if ($check=true){
 	$row=$new->fetch();	
