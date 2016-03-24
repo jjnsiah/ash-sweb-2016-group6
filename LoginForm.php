@@ -42,7 +42,12 @@
 		$array1 = $obj->queryDatabase($username, $password, $userType);
 		$uu = $array1[0];
 		$pp = $array1[1];
-		$obj->checkDetails($uu, $username, $pp, $password);
+		$results=$obj->checkDetails($uu, $username, $pp, $password);
+
+		if ($results==true)
+		{
+			echo '<script> window.location.href ="homepage.html"; </script>';
+		}
 	}
-	
+
 ?>
