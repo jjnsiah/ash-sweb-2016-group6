@@ -18,7 +18,7 @@
 *@return true if successful, false if unsuccessful
 */
 		function connect(){
-			$this->db = new mysqli ("127.0.0.1", "root", "mawuli.adjei", "ashlabs");
+			$this->db = new mysqli ("localhost", "root", "mawuli.adjei", "ashlabs");
 
 			if ($this->db -> connect_errno){
 					echo "error";
@@ -86,7 +86,7 @@
 						$array[1] = $pResult;
 						return $array;
 						}
-				}	
+				}
 		}
 
 /**
@@ -96,6 +96,7 @@
 
 				if((strcasecmp($user, $username) ==0) && (strcmp($pass, $password) == 0)){
 					echo "access allowed ";
+					echo '<script> window.location.href ="homepage.html"; </script>';
 				}
 
 				else{
@@ -104,4 +105,4 @@
 			}
 
 	}
-?>	
+?>
