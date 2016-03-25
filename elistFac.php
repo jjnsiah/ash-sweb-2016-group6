@@ -39,7 +39,7 @@ include_once ("functions.php");
 	$new=new functions;
 	$check=$new->getEquipment();
 
-	if ($check==false) {
+	if ($check=false) {
 	echo "false";
 	}
 	else {
@@ -91,7 +91,7 @@ include_once ("functions.php");
 			echo "<td >{$row['LABNAME']}</td>";
 
 			echo "<td bgcolor=white><a href='deleteorchange.php?id=".$row['EquipmentID']."'>Delete</a></td>";
-			echo "<td bgcolor=white><a href='editEquipment.php?id=".$row['EquipmentID']."'>Edit</a></td>";
+			echo "<td bgcolor=white><a href='editEquipment.php?code=".$row['EquipmentID']."'>Edit</a></td>";
 			echo "<td bgcolor=white><a href='borrow.php?id=".$row['EquipmentID']." && status=".$row['status']."'>Borrow</a></td>
 
 

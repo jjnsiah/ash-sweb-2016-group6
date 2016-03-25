@@ -97,7 +97,7 @@ class functions extends adb{
 		}
 
 		function getOldEquipment($id){
-			$entered=$id;
+			$entered==$id;
 			if ($entered=true){
 			$filter="id= $entered";
 			}
@@ -107,7 +107,7 @@ class functions extends adb{
 			$this->getEquipment($filter);
 		}
 
-		
+
 	function getUserByCode($uid){
 		$strQuery="select uid, username, firstname,lastname from users where uid=$uid";
 		return $this->query($strQuery);
