@@ -43,11 +43,11 @@
 		$uu = $array1[0];
 		$pp = $array1[1];
 		$results=$obj->checkDetails($uu, $username, $pp, $password);
-
-		if ($results==true)
+		if ($results=true)
 		{
 			echo '<script> window.location.href ="homepage.html"; </script>';
 		}
+
 	}
 
 ?>

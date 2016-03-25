@@ -1,3 +1,4 @@
+
 <?php
 //Settings for database connection
 define("DB_HOST","localhost");
