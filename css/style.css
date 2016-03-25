@@ -3,7 +3,11 @@
 html{
     height: 100%;
     width: 100%;
+<<<<<<< HEAD
+    font-family: "Times New Roman", sans-serif;
+=======
     font-family: "Open Sans Light", sans-serif;
+>>>>>>> af9f51b21f72177904df84b865e9b07934027d97
 }
 
 
@@ -16,6 +20,139 @@ body{
     width: 100%;
 }
 
+<<<<<<< HEAD
+.clickspot{
+	text-decoration:underline;
+	color:blue;
+	cursor:pointer
+}
+.status{
+  height: 0.5in;
+  background-color: white;
+  font-size:  35px;
+  font-style: italic;
+  font-weight: bolder;
+
+}
+.error{
+	color:Red;
+	background-color:Yellow
+}
+
+.menuitem {
+	text-decoration:none;
+	background-color:white;
+    color:black;
+	cursor:hand;
+    border: 1px solid none;
+    width: 80px;
+    border-radius: 2px;
+    margin: 0 auto;
+    margin-left: 10px;
+    padding: 10px;
+    font-weight: bolder;
+
+
+}
+.menuitem:hover{
+	text-decoration:underline;
+	cursor:hand;
+	font-weight:bold;
+	background-color:#bbdefb  ;
+}
+
+#pageheader
+{
+    height: 1.5in;
+    background-color: #bbdefb ;
+    font-size:  40px;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+}
+
+#mainnav{
+	width:2in;
+	vertical-align:top
+}
+
+
+#content {
+	width:11.85in;
+    margin-left: 500px;
+	vertical-align:top;
+
+}
+
+.reportTable
+{
+    border:1px;
+    border-collapse:collapse;
+}
+
+.reportTable .header
+{
+    background-color: #CC6600;
+    text-transform: uppercase;
+    color: White;
+}
+
+.reportTable .row1
+{
+    background-color: #FFE0B3;
+}
+
+.reportTable .row2
+{
+    background-color:White;
+}
+
+.reportTable tr:hover
+{
+    background-color:Yellow
+}
+
+.tableForm .label
+{
+    background-color: #CC6600;
+    text-transform:capitalize;
+    color: White;
+    text-align:right;
+}
+
+.tableForm .field
+{
+    background-color: #FFAE35;
+}
+.popupMenu
+{
+    background-color: #DC7518;
+    position: absolute;
+    display:none;
+    width: auto;
+}
+
+.popupMenu div
+{
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+.popupMenu div:hover
+{
+    color: #FFFFFF;
+    text-decoration: underline;
+    background-color: #CC6600;
+}
+
+.popupForm
+{
+    background-color: #DC7518;
+    position: absolute;
+    display:none;
+    width: auto;
+}
+=======
 .clickspot{
 	text-decoration:underline;
 	color:blue;
@@ -139,6 +276,7 @@ body{
     display:none;
     width: auto;
 }
+>>>>>>> af9f51b21f72177904df84b865e9b07934027d97
 
 table.container {
    width: 100%;

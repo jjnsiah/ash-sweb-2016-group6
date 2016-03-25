@@ -58,12 +58,20 @@ include_once ("functions.php");
 	
 	echo "<table  border=1><tr >
 	<td >EID</td>
-	<td>NAME</td>
 	<td>BARCODE</td>
-	<td>STATUS</td>
+	<td>NAME</td>
+	<td>LABID</td>
 	<td>DATE RECEIVED</td>
-	<td>BORROW EQUIPMENT</td>
+
+	<td>STATUS</td>
+	<td>DESCRIPTION</td>
+	<td>LAB LOCATION</td>
+	<td>LAB NAME</td>
+
+	<td>DELETE EQUIPMENT</td>
+	<td>EDIT EQUIPMENT</td>
 	
+
 	</tr>";
 	
 	
@@ -73,35 +81,40 @@ include_once ("functions.php");
 		$status="";
 				
 			 $status="Borrowed";
-			 echo "<tr bgcolor=lightblue>
-				<td >{$row['id']}</td>"; 
-			echo "<td >{$row['name']}</td>";
-			echo "<td >{$row['barcode']}</td>";
-			
-			echo "<td >{$row['datereceived']}</td>
+			echo "<tr bgcolor=lightblue><td>{$row['EquipmentID']}</td>";
+			echo "<td >{$row['Barcode']}</td>";
+			echo "<td >{$row['EquipmentName']}</td>";
+			echo "<td >{$row['LabID']}</td>";
+			echo "<td >{$row['datereceived']}</td>";
+
+		echo "<td >{$row['status']}</td>";
+			echo "<td >{$row['DESCRIPTION']}</td>";
+			echo "<td >{$row['LABLOCATION']}</td>";
+			echo "<td >{$row['LABNAME']}</td>";
+			echo "<td bgcolor=white><a href='deleteorchange.php?id=".$row['EquipmentID']."'>Delete</a></td>";
+			echo "<td bgcolor=white><a href='editEquipment.php?code=".$row['EquipmentID']."'>Edit</a></td>
 			
 			
 </tr>";
 
-if ($row['id']==$_REQUEST['id']) {
-	echo "<td >$status</td>";
-echo "<td bgcolor=white>Already Borrowed</a></td></tr>";}
+if ($row['EquipmentID']=$_REQUEST['id']) {
+	
+	
+echo "<td bgcolor=white>Already Borrowed</a></td></tr>";
+}
 		 
-			
-			
-
-			
-			elseif ($row['status']=="Borrowed")
+elseif ($row['status']=="Borrowed")
 			{ 
-		echo "<td >$status</td>";
+		
 		echo "<td bgcolor=white>Already Borrowed</a></td></tr>";
 			}
 			else
 			{ 
+		
 		$status=$row['status'];
-				echo "<td >$status</td>";
+				//echo "<td >$status</td>";
 
-		echo "<td bgcolor=white><a href='borrow.php?id=".$row['id']." && status=".$row['status']."'>Borrow</a></td>
+		echo "<td bgcolor=white><a href='borrow.php?id=".$row['EquipmentID']." && status=".$row['status']."'>Borrow</a></td>
 		 
 				</tr>";
 			}

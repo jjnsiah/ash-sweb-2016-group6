@@ -22,7 +22,7 @@
 					<div id="divPageMenu">
 						<span class="menuitem" >page menu 1</span>
 						<input type="text" id="txtSearch" />
-						<span class="menuitem">search</span>		
+						<span class="menuitem">search</span>
 					</div>
 					<div id="divStatus" class="status">
 						status message
@@ -31,70 +31,85 @@
 						Content space
 					<form action="" method="GET">
 						<input type="text" name="txtSearch">
-						<input type="submit" value="search" >		
-					</form>		
+						<input type="submit" value="search" >
+					</form>
 <?php
 
 include_once ("functions.php");
 	$new=new functions;
 	$check=$new->getEquipment();
 
-	if ($check==false) {
+	if ($check=false) {
 	echo "false";
 	}
 	else {
 		echo "true";
 	}
-	
-	
+
+
 	if (isset($_REQUEST['txtSearch'])){
 		$search=$new->searchEquipment($_REQUEST['txtSearch']);
-		
+
 	}
 	else {
 		$search=$new->getEquipment();
 	}
-	
-	
+
+
 	echo "<table  border=1><tr >
 	<td >EID</td>
-	<td>NAME</td>
 	<td>BARCODE</td>
-	<td>STATUS</td>
+	<td>NAME</td>
+	<td>LABID</td>
 	<td>DATE RECEIVED</td>
+
+	<td>STATUS</td>
+	<td>DESCRIPTION</td>
+	<td>LAB LOCATION</td>
+	<td>LAB NAME</td>
+
 	<td>DELETE EQUIPMENT</td>
 	<td>EDIT EQUIPMENT</td>
+	<td>BORROW EQUIPMENT</td>
+
 	</tr>";
-	
-	
+
+
 	while ($row=$new->fetch()){
-		
-		
+
+
 			 echo "<tr bgcolor=lightblue>
-				<td >{$row['id']}</td>"; 
-			echo "<td >{$row['name']}</td>";
-			echo "<td >{$row['barcode']}</td>";
-			echo "<td >{$row['status']}</td>";
+				<td >{$row['EquipmentID']}</td>";
+			echo "<td >{$row['Barcode']}</td>";
+			echo "<td >{$row['EquipmentName']}</td>";
+			echo "<td >{$row['LabID']}</td>";
 			echo "<td >{$row['datereceived']}</td>";
-			echo "<td bgcolor=white><a href='deleteorchange.php?id=".$row['id']."'>Delete</a></td>";
-			echo "<td bgcolor=white><a href='editEquipment.php?id=".$row['id']."'>Edit</a></td>
-			
-		 
+
+		echo "<td >{$row['status']}</td>";
+			echo "<td >{$row['DESCRIPTION']}</td>";
+			echo "<td >{$row['LABLOCATION']}</td>";
+			echo "<td >{$row['LABNAME']}</td>";
+
+			echo "<td bgcolor=white><a href='deleteorchange.php?id=".$row['EquipmentID']."'>Delete</a></td>";
+			echo "<td bgcolor=white><a href='editEquipment.php?code=".$row['EquipmentID']." && bc=".$row['Barcode']." && ename=".$row['EquipmentName']." && lid=".$row['LabID']." && rec=".$row['datereceived']." && status=".$row['status']." && desc=".$row['DESCRIPTION']." && loc=".$row['LABLOCATION']." && name=".$row['LABNAME']."'>Edit</a></td>";
+			echo "<td bgcolor=white><a href='borrow.php?id=".$row['EquipmentID']." && status=".$row['status']."'>Borrow</a></td>
+
+
 				</tr>";
 		 }
-			
-			
 
-			
 
-		
-	
-echo "</table>";	
-	
-?>						
+
+
+
+
+
+echo "</table>";
+
+?>
 					</div>
 				</td>
 			</tr>
 		</table>
 	</body>
-</html>	
+</html>

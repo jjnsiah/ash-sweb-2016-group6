@@ -40,8 +40,7 @@
 			
 			include_once("functions.php");
 				$obj=new functions();
-				$obj2=new functions();
-				$obj3=new functions();
+				
 
 				$status="";
 			$eid="";
@@ -49,10 +48,10 @@
 			//1) what is the purpose of this if block
 			if(isset($_REQUEST['id']) && ($_REQUEST['status'])){
 				$status=$_REQUEST['status'];
-				$eid=$_REQUEST['id'];
+				//$eid=$_REQUEST['id'];
 				
-				$r=$obj->getOldEquipment($eid);
-				$u=$obj2->getUserByCode(2);
+				$r=$obj->getOldEquipment($_REQUEST['id']);
+				
 				
 				
 				if($r=false){
@@ -60,67 +59,63 @@
 				}else{
 					
 					echo "Checking for equipment availability";
-				}
 				
-									
-				echo "<table  border=1><tr><td>EID</td>
-	<td>NAME</td>
+				}
+				echo "<table  border=1><tr >
+	<td >EID</td>
 	<td>BARCODE</td>
+	<td>NAME</td>
+	<td>LABID</td>
+	<td>DATE RECEIVED</td>
+
 	<td>STATUS</td>
-	<td>DATE RECEIVED</td></tr>";
+	<td>DESCRIPTION</td>
+	<td>LAB LOCATION</td>
+	<td>LAB NAME</td>
+
 	
+
+	</tr>";
 	
-	while ($row=$obj->fetch()){
-		if ($status=="Available"){
-			 
-			 echo "<tr bgcolor=lightblue>
-				<td >{$row['id']}</td>"; 
-			echo "<td >{$row['name']}</td>";
-			echo "<td >{$row['barcode']}</td>";
-			echo "<td >{$row['status']}</td>";
-			echo "<td >{$row['datereceived']}</td>
-							
-</tr>";
-		 //$status="Borrowed";
-		 }
-		
+	 while ($row=$obj->fetch()){
+		if ($status=="Available" || $row['EquipmentID']==$_REQUEST['id']){
+		 $status="Borrowed";
+			echo "<tr bgcolor=lightblue><td>{$row['EquipmentID']}</td>";
+			echo "<td >{$row['Barcode']}</td>";
+			echo "<td >{$row['EquipmentName']}</td>";
+			echo "<td >{$row['LabID']}</td>";
+			echo "<td >{$row['datereceived']}</td>";
+
+		echo "<td >$status</td>";
+			echo "<td >{$row['DESCRIPTION']}</td>";
+			echo "<td >{$row['LABLOCATION']}</td>";
+			echo "<td >{$row['LABNAME']}</td>
+			
+	 </tr>";}
+
+
 		 
-		 else 
-		 {
+elseif ($row['status']=="Borrowed")
+			{ 
+		
+		echo "cannot borrow equipment";
+			}
 			
-		 echo "This equipment cannot be borrowed";
-		 }
-			
-		 }
+			else
+			{ 
+		echo "Equipment is in Poor condition";
+			}
+		 
 	//header("Location: elist.php");
 		
-	}
-	 
+	
+			}}
 					
-				
+			
+else {echo "NO EQUIPMENT ID ENTERED";}			
 	
 
-echo "<table border=1><tr><td >USERID</td>
-<td>USERNAME</td>
-	<td>FIRSTNAME</td>
-	<td>LASTNAME</td>
 	
-	</tr>";
-	
-	while ($row1=$obj2->fetch()){
-		
-		
-			echo "<tr bgcolor=lightblue>
-				<td >{$row1['uid']}</td>"; 
-			echo "<td >{$row1['username']}</td>";
-
-			echo "<td >{$row1['firstname']}</td>";
-			echo "<td >{$row1['lastname']}</td>	
-	
-	</tr>";
-	}
-
-echo "</table>";	
 
 			
 					
@@ -129,11 +124,11 @@ echo "</table>";
 						
 						
 			
-			<form action="eupdate.php?status" method="GET" onsubmit='validate()'>
+			<form action="eupdate.php?id= && status=" method="GET" onsubmit='validate()'>
 			<button onclick="goBack()">Go Back</button>
 			
-			<div>Equipment ID<input type="text" name="id" value="<?php echo $row['id']; ?>"></div>
-						
+			<div>Equipment ID<input type="text" name="id" value="<?php echo $row['EquipmentID']; ?>"></div>
+
 
 			<input type="submit" name="save" value="Update"></input>
 			

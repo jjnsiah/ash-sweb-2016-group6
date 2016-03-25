@@ -5,11 +5,11 @@
 	<link rel="stylesheet" href="css/style.css">
 		<script type="text/javascript">
 			function validate(){
-				//check data 
+				//check data
 				alert("valid");
 				return true;
 			}
-		
+
 		</script>
 	</head>
 	<body>
@@ -24,36 +24,43 @@
 <?php
 	include_once("functions.php");
 	$new= new functions();
+
+	if(isset($_REQUEST['code'])){
+	//$id=$_REQUEST['code'];
 	
-	if(isset($_REQUEST['id'])){
 	
-	$id=$_REQUEST['id'];
-	$check=$new->getOldEquipment($id);
+	$check=$new->getOldEquipment($_REQUEST['code']);
+	echo $check;
 	if ($check=true){
-	$row=$new->fetch();	
+		
+	$row=$new->fetch();
+	
+	
 	}
 	else {
 		echo "could not fetch";
 	}
 	}
-	else 
+	else
 	{
 		echo "no id entered";
 		exit();
 	}
-	
-		
+
+
 ?>
 		<form action="Updata.php" method="GET" onsubmit='validate()'>
-			
-			<input type="hidden" name="id" value="<?php echo $row['id']?>">
-			
-			<div>Barcode: <input type="text" name="barcode" value="<?php echo $row['barcode'] ?>"/></div>
-			<div>Equipmentname: <input type="text" name="name" value="<?php echo $row['name'] ?>"/></div>
-			<div>SupplierID: <input type="text" name="supplierid" value="<?php echo $row['supplierid'] ?>"/></div>
+
+			<input type="hidden" name="id" value="<?php echo $row['EquipmentID']?>">
+
+			<div>Barcode: <input type="text" name="Barcode" value="<?php echo $row['Barcode'] ?>"/></div>
+			<div>Equipment Name: <input type="text" name="EquipmentName" value="<?php echo $row['EquipmentName'] ?>"/></div>
+			<div>LabID: <input type="text" name="LabID" value="<?php echo $row['LabID'] ?>"/></div>
 			<div>DateReceived: <input type="date" name="datereceived" value="<?php echo $row['datereceived'] ?>"/></div>
-			
-		
+			<div>Description: <input type="text" name="DESCRIPTION" value="<?php echo $row['DESCRIPTION'] ?>"/></div>
+			<div>Lab Location: <input type="text" name="LABLOCATION" value="<?php echo $row['LABLOCATION'] ?>"/></div>
+			<div>Lab Name: <input type="text" name="LABNAME" value="<?php echo $row['LABNAME'] ?>"/></div>
+
 	<div>
 				<?php
 				$Available="";
@@ -62,20 +69,20 @@
 				if ($row['status']=='Available'){
 					$Available="checked";
 				}
-				else 
+				else
 				{
 					$Borrowed="checked";
 					}
 			?>
 			<div>
 	Status: <input type="radio" name="status" <?php echo $Available?> value="Available"> Available
-		<input  type="radio" name="status"  <?php echo $Borrowed?> value="Borrowed"> Borrowed 
+		<input  type="radio" name="status"  <?php echo $Borrowed?> value="Borrowed"> Borrowed
 			</div>
-			
+
 			<input type="submit" name="save" value="Update"></input>
 		</div>
 				</td>
 			</tr>
 		</table>
 	</body>
-</html>	
+</html>
