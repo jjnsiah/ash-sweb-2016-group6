@@ -5,54 +5,46 @@
 		<script type="text/javascript" src="js/jquery-1.12.1.js"></script>
 		<script type="text/javascript">
 		
-		function addEquipmentComplete(xhr,status){
-			if (status!="success"){
-				divStatus.innerHTML="error while adding equipment";
-					return;
+			//Function that recieves response
+			function addEquipmentComplete(xhr,status){
+				if (status!="success"){
+					divStatus.innerHTML="error while adding equipment";
+						return;
+				}
+				divStatus.innerHTML=xhr.responseText;
 			}
-			divStatus.innerHTML=xhr.responseText;
-		}
-		
-		function addEquipment(){
-		var name=$('#name').val();
-		var barcode=$('#barcode').val();
-		var desc=$('#desc').val();
-		var labName=$('#labName').val();
-		var labLocation=$('#labLocation').val();
-		var dateAdded=$('#dateAdded').val();
-		
-var ajaxUrl="equipAjax.php?cmd=1&name="+name+"&barcode="+barcode+"&desc="+desc+"&labName="+labName+"&labLocation="+labLocation+"&dateAdded="+dateAdded;
-			prompt('aja', ajaxUrl);
 			
-				$.ajax(ajaxUrl,
-				{async:true,
-				complete:addEquipmentComplete	
-				}	
-				);
-		}
-				function saveEquipment(){
+			//Function that sends request
+			function addEquipment(){
+			var name=$('#name').val();
+			var barcode=$('#barcode').val();
+			var desc=$('#desc').val();
+			var labName=$('#labName').val();
+			var labLocation=$('#labLocation').val();
+			var dateAdded=$('#dateAdded').val();
+			
+			var ajaxUrl="equipAjax.php?cmd=1&name="+name+"&barcode="+barcode+"&desc="+desc+"&labName="+labName+"&labLocation="+labLocation+"&dateAdded="+dateAdded;
+				prompt('aja', ajaxUrl);
+				
+					$.ajax(ajaxUrl,
+					{async:true,
+					complete:addEquipmentComplete	
+					}	
+					);
+			}
+					function saveEquipment(){
+						
+					divStatus.innerHTML="Equipment saved";
+				}
 					
-				divStatus.innerHTML="Equipment saved";
-			}
+					
 				
 				
-			
-			
 		</script>
 	</head>
 	<body>
-	<div class="header-section">
-  <div class="header">
-    <div class="menu">
-      <ul>
-        <li><a href="Interface/interface.html" >Home</a></li>
-        <li><a href="about.html">Logout</a></li>
-      </ul>
-    </div>
-  </div>
-</div>		
-<div align="center">Please input the details of the new Equipment you want to add</div><br>
-<div align="center">
+		<div align="center">Please input the details of the new Equipment you want to add</div><br>
+		<div align="center">
 			<div>Name: <input type="text" id="name"/></div><br><br>
 			<div>Barcode: <input type="text" id="barcode"/></div><br><br>
 			<div>Description: <input type="text" id="desc" cols="width" rows="height" wrap="type"></input></div><br><br>
@@ -60,12 +52,12 @@ var ajaxUrl="equipAjax.php?cmd=1&name="+name+"&barcode="+barcode+"&desc="+desc+"
 			<div>Lab Location: <input type="text" id="labLocation"/></div><br><br>
 			<div>Date Added: <input type="text" id="dateAdded" value="yyyy/mm/dd"/></div><br><br>
 			
-</div>
+		</div>
 
 			
-			<div style="align center" >
-<button class="button button2" style="vertical-align:middle" value="Add Equipment" onclick="addEquipment()" >Submit </button>
-</div>
+		<div style="align center" >
+		<button class="button button2" style="vertical-align:middle" value="Add Equipment" onclick="addEquipment()" >Submit </button>
+		</div>
 			
 	</body>
 </html>
