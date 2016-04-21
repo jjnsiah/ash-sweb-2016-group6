@@ -5,7 +5,7 @@ class testEquipment extends PHPUnit_Framework_TestCase
 {
     public function testAddEquipment()
     {
-		// generate test 
+		// generate test for addEquipment 
         $obj=new equipment();
 		$obj->connect();
 		
