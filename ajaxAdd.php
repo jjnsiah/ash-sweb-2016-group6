@@ -3,6 +3,21 @@
 	<title>Add User</title>
 		<link rel="stylesheet" href="mycss.css">
 		<script type="text/javascript" src="js/jquery-1.12.1.js"></script>
+			<script type="text/javascript">
+		
+		function addEquipmentComplete(xhr,status){
+			if (status!="success"){
+				divStatus.innerHTML="error while adding equipment";
+					return;
+			}
+			divStatus.innerHTML=xhr.responseText;
+		}
+		
+		
+				
+			
+			
+		</script>
 	</head>
 	<body>
 	<div class="header-section">
