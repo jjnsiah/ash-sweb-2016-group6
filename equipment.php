@@ -19,7 +19,7 @@ class equipment extends adb2{
 	*/
 	function addEquipment($name,$barcode,$desc,$dateAdded,$labName,$labLocation){
 		
-		
+		//SQL query to add equipment data to database
 		$strQuery="insert into equipments set 
 				NAME='$name', 
 				BARCODE='$barcode',
@@ -36,6 +36,7 @@ class equipment extends adb2{
 	*/
 	function getUsers($filter=false){
 		$strQuery="select NAME,BARCODE,DESCRIPTION,DATE,LABNAME,LABLOCATION";
+		
 		if($filter!=false){
 			$strQuery=$strQuery . " where $filter";
 		}
