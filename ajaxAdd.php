@@ -1,9 +1,9 @@
-	 <html>
+ <html>
 	<head>
 	<title>Add User</title>
 		<link rel="stylesheet" href="mycss.css">
 		<script type="text/javascript" src="js/jquery-1.12.1.js"></script>
-			<script type="text/javascript">
+		<script type="text/javascript">
 		
 		function addEquipmentComplete(xhr,status){
 			if (status!="success"){
@@ -22,7 +22,7 @@
 		var dateAdded=$('#dateAdded').val();
 		
 var ajaxUrl="equipAjax.php?cmd=1&name="+name+"&barcode="+barcode+"&desc="+desc+"&labName="+labName+"&labLocation="+labLocation+"&dateAdded="+dateAdded;
-	//prompt('aja', ajaxUrl);
+			prompt('aja', ajaxUrl);
 			
 				$.ajax(ajaxUrl,
 				{async:true,
@@ -69,3 +69,5 @@ var ajaxUrl="equipAjax.php?cmd=1&name="+name+"&barcode="+barcode+"&desc="+desc+"
 			
 	</body>
 </html>
+
+
