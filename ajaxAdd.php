@@ -13,7 +13,28 @@
 			divStatus.innerHTML=xhr.responseText;
 		}
 		
+		function addEquipment(){
+		var name=$('#name').val();
+		var barcode=$('#barcode').val();
+		var desc=$('#desc').val();
+		var labName=$('#labName').val();
+		var labLocation=$('#labLocation').val();
+		var dateAdded=$('#dateAdded').val();
 		
+var ajaxUrl="equipAjax.php?cmd=1&name="+name+"&barcode="+barcode+"&desc="+desc+"&labName="+labName+"&labLocation="+labLocation+"&dateAdded="+dateAdded;
+	//prompt('aja', ajaxUrl);
+			
+				$.ajax(ajaxUrl,
+				{async:true,
+				complete:addEquipmentComplete	
+				}	
+				);
+		}
+				function saveEquipment(){
+					
+				divStatus.innerHTML="Equipment saved";
+			}
+				
 				
 			
 			
