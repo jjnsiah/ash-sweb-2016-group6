@@ -1,10 +1,10 @@
 <?php
-include_once("adb.php");
+include_once("adb2.php");
 	/** This is the equipment file which would hold the file
 	*The equipment class
 	*The class is used to manage the equipments of the class
 	*/
-class equipment extends adb{
+class equipment extends adb2{
 	function equipment(){
 	}
 	/**
