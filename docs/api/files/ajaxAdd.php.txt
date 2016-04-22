@@ -22,7 +22,7 @@
 		var dateAdded=$('#dateAdded').val();
 		
 var ajaxUrl="equipAjax.php?cmd=1&name="+name+"&barcode="+barcode+"&desc="+desc+"&labName="+labName+"&labLocation="+labLocation+"&dateAdded="+dateAdded;
-			prompt('Equipment has been added', ajaxUrl);
+			prompt('aja', ajaxUrl);
 			
 				$.ajax(ajaxUrl,
 				{async:true,
@@ -45,21 +45,20 @@ var ajaxUrl="equipAjax.php?cmd=1&name="+name+"&barcode="+barcode+"&desc="+desc+"
   <div class="header">
     <div class="menu">
       <ul>
-        <li class= "text"><a href="Interface/interface.html" >Home</a></li>
-        <li class= "text"><a href="about.html">Logout</a></li>
+        <li><a href="Interface/interface.html" >Home</a></li>
+        <li><a href="about.html">Logout</a></li>
       </ul>
     </div>
   </div>
-</div>	
-<div> <br> <br> <br> <br> <br> </div>	
-<div align="center" class= "text">Please input the details of the new Equipment you want to add below</div><br>
-<div align="center" class= "text">
-			<div >Name: <input type="text" id="name" class= "textbox"/></div><br><br>
-			<div>Barcode: <input type="text" id="barcode" class= "textbox"/></div><br><br>
-			<div>Description: <input type="text" id="desc" cols="width" rows="height" wrap="type" class= "textbox"></input></div><br><br>
-			<div>Lab Name: <input type="text" id="labName" class= "textbox"/></div><br><br>
-			<div>Lab Location: <input type="text" id="labLocation" class= "textbox"/></div><br><br>
-			<div>Date Added: <input type="text" id="dateAdded" value="yyyy/mm/dd" class= "textbox"/></div><br><br>
+</div>		
+<div align="center">Please input the details of the new Equipment you want to add</div><br>
+<div align="center">
+			<div>Name: <input type="text" id="name"/></div><br><br>
+			<div>Barcode: <input type="text" id="barcode"/></div><br><br>
+			<div>Description: <input type="text" id="desc" cols="width" rows="height" wrap="type"></input></div><br><br>
+			<div>Lab Name: <input type="text" id="labName"/></div><br><br>
+			<div>Lab Location: <input type="text" id="labLocation"/></div><br><br>
+			<div>Date Added: <input type="text" id="dateAdded" value="yyyy/mm/dd"/></div><br><br>
 			
 </div>
 
@@ -70,5 +69,6 @@ var ajaxUrl="equipAjax.php?cmd=1&name="+name+"&barcode="+barcode+"&desc="+desc+"
 			
 	</body>
 </html>
+
 
 

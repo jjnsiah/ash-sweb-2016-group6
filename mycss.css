@@ -1,50 +1,27 @@
+
 body {
-	/*background-image: url(http://cliparts.co/cliparts/zTX/4pz/zTX4pzeTB.jpg);*/
+	background-image: url("background1.jpg");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	padding-top:0px;
-	padding-bottom:50px;
 }
 
-form {
-                width:500px;
-                margin:50px auto;
+
+.text{
+	text-align: center;
+	padding-top: 30px;
+	font-family: Helvetica;
+	font-size: 20px;
+	color: Black;
 }
 
-.search {
-                padding:8px 15px;
-                background:rgb(153, 0, 0);
-                border:0px solid #dbdbdb;
-}
+.textbox { 
+    border: 3px groove #FFA5A5; 
+    outline:0; 
+    height:25px; 
+    width: 275px; 
+  } 
 
-.button3:hover  {
-                background-color:#fafafa;
-                color:#207cca;
-}
-input[type=text], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
 
-input[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-input[type=submit]:hover {
-    background-color: #45a049;
-}
 .button1{
 	    position: relative;
 	    background-color:#c0392b ;

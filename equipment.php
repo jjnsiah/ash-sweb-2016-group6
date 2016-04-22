@@ -2,7 +2,7 @@
 include_once("adb2.php");
 	/** This is the equipment file which would hold the file
 	*The equipment class
-	*The class is used to manage the equipments of the class
+	*The class is used to manage the equipments
 	*/
 class equipment extends adb2{
 	function equipment(){
@@ -17,16 +17,17 @@ class equipment extends adb2{
 	*@param int dateAdded date equipment was added
 	*@return boolean returns true if successful or false 
 	*/
-	function addEquipment($name,$barcode,$desc,$dateAdded,$labName,$labLocation){
+	function addEquipment($equipname,$barcode,$desc,$dateAdded,$labName,$labLocation){
 		
-		//SQL query to add equipment data to database
+		
 		$strQuery="insert into equipments set 
-				NAME='$name', 
-				BARCODE='$barcode',
-				DESCRIPTION='$desc',
-				DATE='$dateAdded',
-				LABNAME='$labName',
-				LABLOCATION='$labLocation'";
+											NAME='$equipname', 
+											BARCODE='$barcode', 
+											DESCRIPTION='$desc', 
+											DATE='$dateAdded', 
+											LABNAME='$labName', 
+											LABLOCATION='$labLocation'";
+				echo $strQuery;
 		return $this->query($strQuery);				
 	}
 	/**
@@ -36,7 +37,6 @@ class equipment extends adb2{
 	*/
 	function getUsers($filter=false){
 		$strQuery="select NAME,BARCODE,DESCRIPTION,DATE,LABNAME,LABLOCATION";
-		
 		if($filter!=false){
 			$strQuery=$strQuery . " where $filter";
 		}
