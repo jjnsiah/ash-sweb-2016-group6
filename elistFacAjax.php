@@ -7,7 +7,7 @@
 		<script type="text/javascript" src="js/jquery-1.12.1.js"> </script>
 		<script type="text/javascript">
 
-var curr;
+var curr =null;
 
 function saveDescComplete(xhr, status)
 {
@@ -22,6 +22,17 @@ function saveDescComplete(xhr, status)
 		status.innerHTML=xhr.responseText;
 		curr.innerHTML=$("#txtName").val();
 	}
+	curr=null;
+	var obj= $.parseJSON(xhr.responseText);
+	if (obj.results==0)
+	{
+		status.innerHTML=obj.message;
+	}
+	else {
+		curr=$("#txtName").val();
+		alert(obj.message);
+
+	}
 
 }
 
@@ -29,6 +40,14 @@ function saveDescComplete(xhr, status)
 function saveDesc(uc)
 {
 	url='ajaxequip.php?cmd=2&uc='+uc+'&desc='+$("#txtName").val();
+	$.ajax(url,
+		{async:true,complete:saveNameComplete}
+	)
+}
+function savelabloc(uc)
+{
+
+	url='ajaxequip.php?cmd=3&uc='+uc+'&labloc='+$("#txtName").val();
 	$.ajax(url,
 		{async:true,complete:saveNameComplete}
 	)
@@ -52,23 +71,60 @@ function saveDesc(uc)
 			}
 			else
 			{
-				console.log($("#txtName").val());
+				//console.log($("#txtName").val());
 				status.innerHTML=xhr.responseText;
 				curr.innerHTML=$("#txtName").val();
+
 			}
-			/*var obj= jQuery.parseJSON(xhr.responseText);
+			curr=null;
+			console.log(xhr.responseText);
+			var obj= $.parseJSON(xhr.responseText);
 			if (obj.results==0)
 			{
 				status.innerHTML=obj.message;
 			}
 			else {
 				curr=$("#txtName").val();
-				status.innerHTML=curr+'has been edited';
+				alert(obj.message);
 
-			}*/
+			}
+		}
+
+		function savelablocComplete(xhr, status)
+		{
+
+			if(status!='success')
+			{
+				status.innerHTML='Request not completed';
+			}
+			else
+			{
+				console.log($("#txtName").val());
+				status.innerHTML=xhr.responseText;
+				curr.innerHTML=$("#txtName").val();
+			}
+			curr=null;
+			var obj= $.parseJSON(xhr.responseText);
+			if (obj.results==0)
+			{
+				status.innerHTML=obj.message;
+			}
+			else {
+				curr=$("#txtName").val();
+				alert(obj.message);
+
+			}
+
+
 		}
 
 
+		function editlabloc(obj,rid){
+			curr=obj;
+			var currentName=obj.innerHTML;
+			obj.innerHTML="<input id='txtName' type='text'> <span  onclick='savelabloc("+rid+")'>save</span>";
+			$("#txtName").val(currentName);
+		}
 
 		function editDesc(obj,rid){
 			curr=obj;
@@ -159,7 +215,7 @@ include_once ("functions.php");
 
 		echo "<td >{$row['status']}</td>";
 			echo "<td ondblclick='editDesc(this,{$row['EquipmentID']})'>{$row['DESCRIPTION']}</td>";
-			echo "<td >{$row['LABLOCATION']}</td>";
+			echo "<td ondblclick='editlabloc(this,{$row['EquipmentID']})'>{$row['LABLOCATION']}</td>";
 			echo "<td >{$row['LABNAME']}</td>";
 
 			echo "<td bgcolor=white><a href='deleteorchange.php?id=".$row['EquipmentID']."'> Delete</a></td>";
