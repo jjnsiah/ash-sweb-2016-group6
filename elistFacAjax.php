@@ -1,3 +1,7 @@
+
+/**
+*This page represents the client side of the ajax implementation
+*/
 <html>
 	<head>
 		<title>Display all Equipment</title>
@@ -8,6 +12,12 @@
 		<script type="text/javascript">
 
 var curr =null;
+/**
+*saveDescComplete
+*@param xhr which represents the object
+*and status which sends success or failure
+*
+*/
 
 function saveDescComplete(xhr, status)
 {
@@ -36,6 +46,11 @@ function saveDescComplete(xhr, status)
 
 }
 
+/**
+*saveDesc sends data from this page to the other page
+*@param uc which sends the equipment id
+*
+*/
 
 function saveDesc(uc)
 {
@@ -44,6 +59,14 @@ function saveDesc(uc)
 		{async:true,complete:saveNameComplete}
 	)
 }
+
+
+/**
+*savelabloc sends data from this page to the other page
+*@param uc which sends the equipment id
+*
+*/
+
 function savelabloc(uc)
 {
 
@@ -52,6 +75,13 @@ function savelabloc(uc)
 		{async:true,complete:saveNameComplete}
 	)
 }
+
+/**
+*saveName sends data from this page to the other page
+*@param uc which sends the equipment id
+*
+*/
+
 		function saveName(uc)
 		{
 
@@ -61,6 +91,12 @@ function savelabloc(uc)
 			)
 		}
 
+		/**
+		*saveNameComplete
+		*@param xhr which represents the object
+		and status which sends success or failure
+		*
+		*/
 
 		function saveNameComplete(xhr, status)
 		{
@@ -90,6 +126,13 @@ function savelabloc(uc)
 			}
 		}
 
+		/**
+		*savelablocComplete
+		*@param xhr which represents the object
+		and status which sends success or failure
+		*
+		*/
+
 		function savelablocComplete(xhr, status)
 		{
 
@@ -118,6 +161,12 @@ function savelabloc(uc)
 
 		}
 
+		/**
+		*editlabloc
+		*@param obj and rid
+		*
+		*/
+
 
 		function editlabloc(obj,rid){
 			curr=obj;
@@ -126,12 +175,26 @@ function savelabloc(uc)
 			$("#txtName").val(currentName);
 		}
 
+		/**
+		*editDesc
+		*@param obj and rid
+		*
+		*/
+
 		function editDesc(obj,rid){
 			curr=obj;
 			var currentName=obj.innerHTML;
 			obj.innerHTML="<input id='txtName' type='text'> <span  onclick='saveDesc("+rid+")'>save</span>";
 			$("#txtName").val(currentName);
 		}
+
+
+		/**
+		*editName
+		*@param obj and rid
+		*
+		*/
+
 		function editName(obj,rid){
 			curr=obj;
 			var currentName=obj.innerHTML;

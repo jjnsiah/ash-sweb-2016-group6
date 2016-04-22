@@ -108,6 +108,13 @@ class functions extends adb2{
 			//echo $filter;
 			$this->getEquipment($filter);
 		}
+
+		/**
+		*updateName
+		*@param int id the equipment id to be updated
+		* string name the name to be updated
+		*returns true if the equipment name is updated, else false
+		*/
 		function updateName ($id,$name)
 		{
 		$strQuery=	"update equipment set
@@ -115,6 +122,12 @@ class functions extends adb2{
 		return $this->query($strQuery);
 
 		}
+		/**
+		*updateDesc
+		*@param int id the equipment id to be updated
+		* string desc the description to be edited
+		*returns true if the equipment description is updated, else false
+		*/
 		function updateDesc ($id,$desc)
 		{
 		$strQuery=	"update equipment set
@@ -123,6 +136,33 @@ class functions extends adb2{
 
 		}
 
+		/**
+		*updatelablocation
+		*@param int id the equipment id to be updated
+		* string labloc the lab location to be edited
+		*returns true if the lab location is updated, else false
+		*/
+		function updatelablocation ($id,$labloc)
+		{
+		$strQuery=	"update equipment set
+			LABLOCATION='$labloc' where EquipmentID= '$id' ";
+		return $this->query($strQuery);
+
+		}
+		/**
+		*updatelabName
+		*@param int id the equipment id to be updated
+		* string labName the labname to be edited
+		*returns true if the labname is updated, else false
+		*/
+
+		function updatelabName ($id,$labName)
+		{
+		$strQuery=	"update equipment set
+			LabName='$labName' where EquipmentID= '$id' ";
+		return $this->query($strQuery);
+
+		}
 
 }
 ?>

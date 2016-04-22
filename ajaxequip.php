@@ -1,3 +1,7 @@
+/**
+*Php Ajax page which represents the server side of the ajax implementation
+*/
+
 <?php
 if(!isset($_REQUEST['cmd'])){
 echo "cmd is not provided";
@@ -20,6 +24,9 @@ echo "wrong cmd";
 
 }
 
+/**
+*changeEquipName changes the equipment name
+*/
 function changeEquipName(){
   if(!isset($_REQUEST['uc'])){
     echo "{'message':'No usercode','results':0}";
@@ -41,6 +48,9 @@ else {
 
 }
 
+/**
+*changeEquipDesc changes the equipment description
+*/
 function changeEquipDesc(){
   if(!isset($_REQUEST['uc'])){
     echo "{'message':'No usercode','results':0}";
@@ -63,6 +73,9 @@ else {
 }
 
 
+/**
+*changeLabloc changes the lab location of the equipment
+*/
 function changeLabloc(){
   if(!isset($_REQUEST['uc'])){
     echo "{'message':'No usercode','results':0}";
