@@ -7,16 +7,79 @@
 		<script type="text/javascript" src="js/jquery-1.12.1.js"> </script>
 		<script type="text/javascript">
 
+var curr;
 
+function saveDescComplete(xhr, status)
+{
+
+	if(status!='success')
+	{
+		status.innerHTML='Request not completed';
+	}
+	else
+	{
+		console.log($("#txtName").val());
+		status.innerHTML=xhr.responseText;
+		curr.innerHTML=$("#txtName").val();
+	}
+
+}
+
+
+function saveDesc(uc)
+{
+	url='ajaxequip.php?cmd=2&uc='+uc+'&desc='+$("#txtName").val();
+	$.ajax(url,
+		{async:true,complete:saveNameComplete}
+	)
+}
 		function saveName(uc)
 		{
-			console.log($("#txtName"));
-			//url='ajaxequip.php?cmd=1&uc='+uc+'name='+val(currentName);
+
+			url='ajaxequip.php?cmd=1&uc='+uc+'&name='+$("#txtName").val();
+			$.ajax(url,
+				{async:true,complete:saveNameComplete}
+			)
 		}
 
-		function editName(obj,id){
+
+		function saveNameComplete(xhr, status)
+		{
+
+			if(status!='success')
+			{
+				status.innerHTML='Request not completed';
+			}
+			else
+			{
+				console.log($("#txtName").val());
+				status.innerHTML=xhr.responseText;
+				curr.innerHTML=$("#txtName").val();
+			}
+			/*var obj= jQuery.parseJSON(xhr.responseText);
+			if (obj.results==0)
+			{
+				status.innerHTML=obj.message;
+			}
+			else {
+				curr=$("#txtName").val();
+				status.innerHTML=curr+'has been edited';
+
+			}*/
+		}
+
+
+
+		function editDesc(obj,rid){
+			curr=obj;
 			var currentName=obj.innerHTML;
-			obj.innerHTML="<input id='txtName' type='text'> <span class='clickspot' onclick='saveName(id)' >save</span>";
+			obj.innerHTML="<input id='txtName' type='text'> <span  onclick='saveDesc("+rid+")'>save</span>";
+			$("#txtName").val(currentName);
+		}
+		function editName(obj,rid){
+			curr=obj;
+			var currentName=obj.innerHTML;
+			obj.innerHTML="<input id='txtName' type='text'> <span  onclick='saveName("+rid+")'>save</span>";
 			$("#txtName").val(currentName);
 		}
 
@@ -40,6 +103,7 @@
 						<form action="" method="GET" class="searchbox_1">
 			<input type="search" class="search_1" placeholder="Search" name="txtSearch" />
 			<button type="submit" class="submit_1" value="search">&nbsp;</button>
+			<div id="status"></div>
 		</form>
 <?php
 
@@ -94,7 +158,7 @@ include_once ("functions.php");
 			echo "<td >{$row['datereceived']}</td>";
 
 		echo "<td >{$row['status']}</td>";
-			echo "<td >{$row['DESCRIPTION']}</td>";
+			echo "<td ondblclick='editDesc(this,{$row['EquipmentID']})'>{$row['DESCRIPTION']}</td>";
 			echo "<td >{$row['LABLOCATION']}</td>";
 			echo "<td >{$row['LABNAME']}</td>";
 
