@@ -1,0 +1,300 @@
+body {
+	/*background-image: url(http://cliparts.co/cliparts/zTX/4pz/zTX4pzeTB.jpg);*/
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	padding-top:0px;
+	padding-bottom:50px;
+}
+
+form {
+                width:500px;
+                margin:50px auto;
+}
+
+.search {
+                padding:8px 15px;
+                background:rgb(153, 0, 0);
+                border:0px solid #dbdbdb;
+}
+
+.button3:hover  {
+                background-color:#fafafa;
+                color:#207cca;
+}
+.status{
+	background-color:#e2e2e9;
+}
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+.button1{
+	    position: relative;
+	    background-color:#c0392b ;
+	    padding: 10px 28px;
+	    border-radius:  5px;
+	    box-shadow: 0 1px 3px 0 rgba(0,0,0,.2);
+	    box-shadow: 0 1px 3px 0 rgba(0,0,0,.2);
+	    -o-box-shadow:0 1px 3px 0 rgba(0,0,0,.2);
+	    -moz-box-shadow:0 1px 3px 0 rgba(0,0,0,.2);
+	    -webtech-box-shadow:0 1px 3px 0 rgba(0,0,0,.2);
+	    transition: all ease-in-out 200ms;
+	    -o-transition: all ease-in-out 200ms;
+	    -webtech-transition: all ease-in-out 200ms;
+	    -moz-transition: all ease-in-out 200ms;
+
+
+
+
+	}
+a:link {
+    color: black;
+}
+
+
+/* selected link */
+a:active {
+    color: red;
+}
+
+
+.button {
+    position: relative;
+    background-color:#c0392b ;
+    padding: 10px 28px;
+    border-radius:  5px;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.2);
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.2);
+    -o-box-shadow:0 1px 3px 0 rgba(0,0,0,.2);
+    -moz-box-shadow:0 1px 3px 0 rgba(0,0,0,.2);
+    -webtech-box-shadow:0 1px 3px 0 rgba(0,0,0,.2);
+    transition: all ease-in-out 200ms;
+    -o-transition: all ease-in-out 200ms;
+    -webtech-transition: all ease-in-out 200ms;
+    -moz-transition: all ease-in-out 200ms;
+		margin-left: 540px;
+		font-size: 1.2em;
+		font-weight: bolder;
+
+}
+
+.button:hover {
+    background-color: #e74c3c;
+}
+
+.menu{
+float:right;
+}
+
+.menu ul li{
+list-style:none;
+float:left;
+margin-right:10px;
+}
+
+.menu ul li a{
+ display:block;
+ line-height:80px;
+ height:60px;
+ padding-left:20px;
+ padding-right:20px;
+ color:#ffffff;
+ text-decoration:none;
+ }
+
+.menu ul li a:hover{
+background:url(../images/menu-active.jpg) no-repeat;
+color:#e00b15;
+}
+
+.menu ul li a.active{
+ background:url(../images/menu-active.jpg) no-repeat;
+ color:#e00b15;
+ }
+
+
+
+
+.TFtable{
+		max-width:100%;
+		border-collapse:collapse;
+		margin-left:250px;
+	}
+	.TFtable td{
+		padding:7px;
+		border: black 2px solid;
+	}
+	/* provide some minimal visual accomodation for IE8 and below */
+	.TFtable tr{
+		background: white;
+	}
+	/*  Define the background color for all the ODD background rows  */
+	.TFtable tr:nth-child(odd){
+		background: #e2e2e9;
+		}
+	/*  Define the background color for all the EVEN background rows  */
+	.TFtable tr:nth-child(even){
+		background:white;
+	}
+
+	/* search box*/
+.searchbox_1{
+background-color: #fffbf8;
+padding:13px;
+width:335px;
+margin: 25px auto;
+-webkit-box-sizing:border-box;
+-moz-box-sizing:border-box;
+box-sizing:border-box;
+border-radius:6px;
+-webkit-box-shadow:
+0 2px 4px 0 rgba(72, 72, 72, 0.83),
+0 10px 15px 0 rgba(126, 126, 126, 0.12),
+0 -2px 6px 1px rgba(199, 199, 199, 0.55) inset,
+0 2px 4px 2px rgba(255, 255, 255, 0.83) inset;
+-moz-box-shadow:
+0 2px 4px 0 rgba(72, 72, 72, 0.83),
+0 10px 15px 0 rgba(126, 126, 126, 0.12),
+0 -2px 6px 1px rgba(199, 199, 199, 0.55) inset,
+0 2px 4px 2px rgba(255, 255, 255, 0.83) inset;
+box-shadow:
+0 2px 4px 0 rgba(72, 72, 72, 0.83),
+0 10px 15px 0 rgba(126, 126, 126, 0.12),
+0 -2px 6px 1px rgba(199, 199, 199, 0.55) inset,
+0 2px 4px 2px rgba(255, 255, 255, 0.83) inset;
+}
+.search_1{
+width:250px;
+height:30px;
+padding-left:15px;
+border-radius:6px;
+border:none;
+color:#0F0D0D;;
+font-weight:500;
+background-color:#E2EFF7;;
+-webkit-box-shadow:
+0 -2px 2px 0 rgba(199, 199, 199, 0.55),
+0 1px 1px 0 #fff,
+0 2px 2px 1px #fafafa,
+0 2px 4px 0 #b2b2b2 inset,
+0 -1px 1px 0 #f2f2f2 inset,
+0 15px 15px 0 rgba(41, 41, 41, 0.09) inset;
+-moz-box-shadow:
+0 -2px 2px 0 rgba(199, 199, 199, 0.55),
+0 1px 1px 0 #fff,
+0 2px 2px 1px #fafafa,
+0 2px 4px 0 #b2b2b2 inset,
+0 -1px 1px 0 #f2f2f2 inset,
+0 15px 15px 0 rgba(41, 41, 41, 0.09) inset;
+box-shadow:
+0 -2px 2px 0 rgba(199, 199, 199, 0.55),
+0 1px 1px 0 #fff,
+0 2px 2px 1px #fafafa,
+0 2px 4px 0 #b2b2b2 inset,
+0 -1px 1px 0 #f2f2f2 inset,
+0 15px 15px 0 rgba(41, 41, 41, 0.09) inset;
+}
+.submit_1{
+width:35px;
+height:30px;
+background-image:url(http://findicons.com/files/icons/1035/human_o2/128/new_zoom_original.png);
+background-repeat: no-repeat;
+background-position: 17px 2px;
+background-color:transparent;
+-webkit-background-size:20px 20px;
+background-size:20px 20px;
+border:none;
+cursor:pointer;
+}
+.search_1:focus{
+outline:0;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: relative; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
