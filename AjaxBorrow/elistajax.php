@@ -36,10 +36,57 @@
 		divStatus.innerHTML="Equipment information retrieved";
 		/**
 		*then update the span
+		*store the fetched info in new variables 
 		*/
-		currentObject.innerHTML="Equipment ID: "+obj.equipment.EquipmentID+" Barcode: "+obj.equipment.Barcode+" LabID: "+obj.equipment.LabID+" Date: "+obj.equipment.datereceived+" Lab Location: "+obj.equipment.LABLOCATION;	
+		var id=obj.equipment.EquipmentID;
+		var code=obj.equipment.Barcode;
+		var name=obj.equipment.EquipmentName;
+		var date=obj.equipment.datereceived;
+		var status=obj.equipment.status;
+		var lid=obj.equipment.LabID;
+		var desc=obj.equipment.DESCRIPTION;
+		var loc=obj.equipment.LABLOCATION;
+		var lname=obj.equipment.LABNAME;
+		/**
+		*To create the modal
+		*/
+		var modal = document.getElementById('myModal');
+		var modalInfo="";
+		modalInfo+="<div class='modal-content'><div class='modal-header'><h3><Equipment Details></h3><span class='close'>×</span></div><div class=modal-body><table border=1><tr><td>EID</td><td>BARCODE</td><td>NAME</td><td>LABID</td><td>DATE RECEIVED</td><td>STATUS</td><td>DESCRIPTION</td><td>LAB LOCATION</td><td>LAB NAME</td></tr><tr><td>"+id+"</td><td>"+code+"</td><td>"+name+"</td><td>"+lid+"</td><td>"+date+"</td><td>"+status+"</td><td>"+desc+"</td><td>"+loc+"</td><td>"+lname+"</td></tr></table></div><div class='modal-footer'><h3> detail of Equipment</h3></div></div>"
+		;
+		modal.innerHTML=modalInfo;
+		modal.style.display="block";
+
+		/**
+		*Get the button that opens the modal
+		*/
+		var btn = document.getElementById("myBtn");
+
+		/**
+		*Get the <span> element that closes the modal
+		*/
+		var span = document.getElementsByClassName("close")[0];
+		/**
+		*When the user clicks the button, open the modal 
+		*/
+		btn.onclick = function() {
+		modal.style.display = "block";
 		}
-	currentObject=null;
+		/**
+		*When the user clicks on <span> (x), close the modal
+		*/
+		span.onclick = function() {
+			modal.style.display = "none";
+		}
+		/**
+		*When the user clicks anywhere outside of the modal, close it
+		*/
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+	}
 }
 
 	function changeStatus(obj,id){
@@ -101,8 +148,7 @@
 						<td>STATUS</td>
 						<td>DESCRIPTION</td>
 						<td>LAB NAME</td>
-						<td>change status</td>
-						<td>view more</td>
+						<td>STATUS</td>
 
 			</tr>	
 		</div>		
@@ -118,13 +164,15 @@
 				<td >{$row['status']}</td>
 				<td >{$row['DESCRIPTION']}</td>
 				<td >{$row['LABNAME']}</td><td>
-				<span onclick='changeStatus(this,{$row['EquipmentID']})'>{$row['status']}</span>
-				<td><span onclick='viewEquip(this,{$row['EquipmentID']})'><button> view</button></span></td>
+				<span onclick='changeStatus(this,{$row['EquipmentID']})'>{$row['status']}</span><br><br>
+				<td><span onclick='viewEquip(this,{$row['EquipmentID']})'><button id='myBtn'>view</button></span></td>
 				</tr>";
 			$row=$obj->fetch();
 	}
 ?>
-
 	</table>
+	
+<?php echo "<div id='myModal' class='modal'></div>; "?>
+
 </body>
 </html>
