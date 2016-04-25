@@ -6,13 +6,17 @@
 	<script type="text/javascript">
 	
 	function viewEquip(obj,id){
-		//send page to server with cmd and id
+		/**
+		*send page to server with cmd and id
+		*/
 	$.ajax("equiplistajax.php?cmd=1&eid="+id,
 		{async:true,
 		complete:viewEquipComplete
 		}
 		);
-		//set the current object
+		/**
+		*set the current object
+		*/
 		currentObject=obj;
 	}
 
@@ -26,17 +30,22 @@
 			divStatus.innerHTML=obj.message;
 		}
 		else{
-		//if status is okay
+		/**
+		*if status is okay
+		*/
 		divStatus.innerHTML="Equipment information retrieved";
-		//then update the span
-		currentObject.innerHTML="Equipment ID: "+obj.equipment.EquipmentID+" Barcode: "+obj.equipment.Barcode+" LabID: "+obj.equipment.LabID+" Date: "+obj.equipment.datereceived+" Lab Location: "+obj.equipment.LABLOCATION;
-		
+		/**
+		*then update the span
+		*/
+		currentObject.innerHTML="Equipment ID: "+obj.equipment.EquipmentID+" Barcode: "+obj.equipment.Barcode+" LabID: "+obj.equipment.LabID+" Date: "+obj.equipment.datereceived+" Lab Location: "+obj.equipment.LABLOCATION;	
 		}
 	currentObject=null;
 }
 
 	function changeStatus(obj,id){
-		//send url to call function
+		/**
+		*send url to call function
+		*/
 	$.ajax("equiplistajax.php?cmd=2&eid="+id,
 		{
 		async:true,
@@ -47,19 +56,24 @@
 }
 
 	function changeStatusComplete(xhr, status){
-		//if calling of function was not successful
+		/**
+		*if calling of function was not successful
+		*/
 	if(status!="success"){
 		divStatus.innerHTML="error while borrowing equipment";
 		return;
 	}
 	var obj=JSON.parse(xhr.responseText);
 	if(obj.result==0){
-		//if function was not successful
-		divStatus.innerHTML=obj.message;
+		/**
+		*if function was not successful
+		*/		divStatus.innerHTML=obj.message;
 	}
 	else{
-		//if successful, set what is displayed in status
-		//update current object
+		/**
+		*if successful, set what is displayed in status
+		*update current object
+		*/
 		divStatus.innerHTML="Equipment borrowed";
 		currentObject.innerHTML=obj.message;
 	}
@@ -91,9 +105,7 @@
 						<td>view more</td>
 
 			</tr>	
-		</div>
-
-		
+		</div>		
 
 <?php
 	include_once("functions.php");
